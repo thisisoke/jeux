@@ -1,6 +1,7 @@
 
 var gamesSection = document.querySelectorAll('#hero-roulett')[0];
 
+//Select the entire body element for use for modal insertion
 var body = document.getElementsByTagName("BODY");
 
 //loadGames();

@@ -3,7 +3,11 @@ var gamesSection = document.querySelectorAll('#roulett')[0];
 
 console.log(userInSession);
 
+//Select the entire body element for use for modal insertion
+var body = document.getElementsByTagName("BODY");
+
 let listOfGames;
+let gameSelectList;
 
 function loadGames(){
 
@@ -21,14 +25,28 @@ function loadGames(){
             let parseGames = "";
 
             for(i = 0; i < listOfGames.length; i++){
-                parseGames += "<p> <a href='#'>"+ listOfGames[i].name + "</a></p>";
+                parseGames += "<p data-gameArrayId='"+ parseInt(i) + "' >"+ listOfGames[i].name + "</p>";
             }
             console.log(parseGames);
             
             gamesSection.innerHTML = parseGames;
 
+            gameSelectList = document.querySelectorAll('[data-gameArrayId]');
+
+            console.log(gameSelectList);
+
+            //Add event listener to each game loaded
+            for(i = 0; i < gameSelectList.length; i++){
+
+                gameSelectList[i].addEventListener("click", viewGame);
+
+
+            }
+
+
         }
     }
+
 
     //Make call to to php script to do the GET featured articles
     
@@ -36,8 +54,69 @@ function loadGames(){
     xhr.send();
     //console.log(getString);
 
-   
+
+
+}
+
+var modalBack; //used to access the modal box at the back
+var gameModalHTML; //used to store the game modal HTML
+
+function viewGame(e){
+
+        console.log(e);
+        console.log("selected game: " + e.target.dataset.gamearrayid);
+
+        
+
+        let selectedGame = e.target.dataset.gamearrayid;
+
+        console.log(listOfGames[selectedGame].description);
+        console.log(listOfGames[selectedGame].name);
+
+        // Insert Modal that shows selected game woth button to start
+
+        gameModalHTML = "<section id='modalBackground'><div id='gamePreviewModal'><div><img src='images/"+ listOfGames[selectedGame].gameImage +"' alt='Game thumbnail picture for "+ listOfGames[selectedGame].name +"' width='100'><h2> "+ listOfGames[selectedGame].name +"</h2><p> "+ listOfGames[selectedGame].description +"</p><p> Amount of Players: "+ listOfGames[selectedGame].playerLimit +"</p></div><form action='#' method='POST' id='createGameRoomForm'><input type='text' name='gameRoomName' placeholder='Write a unique Room Name' required/><button type='submit' value='createRoom'  class='button'>Open New Game Room</button></form></div></section>"
+
+
+        body[0].insertAdjacentHTML('beforeend', gameModalHTML);
+
+        modalBack = document.querySelectorAll('#modalBackground')[0];
+        modalBack.addEventListener("click",exitModal)
+
+        //Get all form for entered Game room 
+        var gameRoomForm = document.querySelectorAll('#createGameRoomForm')[0];
+        gameRoomForm.addEventListener("submit",function(e){startGameRoom(listOfGames[selectedGame].gameId, e, 0)})
+
+
+}
+
+function exitModal(e){
+    // console.log(e.target.tagName);
+    // console.log(e);
+    //check if event targeted element was the grey modal background
+    if (e.target.id == "modalBackground"){
+        console.log("exit modal Works");
+
+        var sectionToRemove = e.target
+        
+        sectionToRemove.remove();
+        //REMOVE the modal
+        //modalBackground
+    }
+
+}
 
 
 
+
+function startGameRoom(gameId, roomFrom, hostId){
+    console.log("startGame Called");
+     //prevent default behaviour
+     roomFrom.preventDefault()
+
+     console.log(roomFrom.target);
+
+     //generarate 4 digital room code
+
+    //link to a php page for gameWaiting Room
 }
