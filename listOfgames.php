@@ -5,6 +5,7 @@ include('includes/dbconfig.php');
 $getCondition = $_GET["featured"]; //can be 1 or 0. Featured is for 1 all is O
 
 
+//If the get condition asks for featured articles
 if ($getCondition == 1){
 
     //Get games that are featured
@@ -12,7 +13,6 @@ if ($getCondition == 1){
 
     //Count how many featured
     $stmt2 = $pdo->prepare("SELECT COUNT(gameId) FROM `games` WHERE `featuredGameFlag` = 1 ");
-
 
 } else {
 
@@ -34,6 +34,7 @@ $count = $stmt2->fetch(PDO::FETCH_ASSOC);
 $countNum = $count["COUNT(gameId)"];
 
 
+//Cycle through the games and create an array fo the results
 for ($i = 0; $i < $countNum; $i++){
    
     $test = $stmt->fetch(PDO::FETCH_NAMED);
@@ -45,8 +46,6 @@ $featuredGamesJSON = json_encode($featuredGames);
 
 //echo the JSON array object of a list of games and details for front end use
 echo $featuredGamesJSON;
-
-
 
 
 ?>
