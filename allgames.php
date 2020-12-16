@@ -1,4 +1,11 @@
+<?php
+//start session
+session_start();
 
+echo($_SESSION["userName"]);
+
+
+?>
 <!DOCTYPE html>
 
 <html>
