@@ -3,22 +3,18 @@
 
 <html>
     <head>
-        <meta charset="utf-8">
-        <title>jeux!</title>
-        <meta content="jeux! is social gaming web app Play fun games with your friends from anywhere" name="description">
 
-        <link href="css/main.css" rel="stylesheet" type="text/css">
+    <?php include('globalheader.php'); ?>
 
-        <link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
-        <link href="images/webclip.png" rel="apple-touch-icon">
+    
 
     </head>
-    <body >
+    <body onload="loadGames()">
     
         <section class="navigation">
             <img id="logo" src="images/SVG/jeux-logo-colour.svg" alt="jeux logo"/>
             
-
+            <button id="loginRegisterButton" type="button">Login in to Play</button>
         </section>
 
         <section id="main">
@@ -28,6 +24,7 @@
             
 
             </section>
+            <p><a href="allgames.php">See All Games ></a></p>
 
             <section id="content">
 
@@ -35,11 +32,14 @@
 
         </section>
 
-        <footer id="footer">
+        
 
+        <footer id="footer">
+            <p>footer<p>
         </footer>
 
         <script type="text/javascript" src="js/home.js"></script>
+        <script type="text/javascript" src="js/loginRegister.js"></script>
     </body>
 
 
