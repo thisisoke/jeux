@@ -2,8 +2,7 @@
 //start session
 session_start();
 
-echo($_SESSION["userName"]);
-
+$userInSession = $_SESSION["userName"];
 
 ?>
 <!DOCTYPE html>
@@ -40,7 +39,14 @@ echo($_SESSION["userName"]);
 
         </footer>
 
+
+        <script> 
+            //pass username to java script for pop or to edit text
+            var userInSession = "<?php echo($userInSession)?>";
+ 
+        </script>
         <script type="text/javascript" src="js/catalog.js"></script>
+
     </body>
 
 

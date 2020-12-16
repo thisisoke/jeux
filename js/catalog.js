@@ -1,6 +1,7 @@
 
 var gamesSection = document.querySelectorAll('#roulett')[0];
 
+console.log(userInSession);
 
 let listOfGames;
 
