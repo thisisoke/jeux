@@ -3,17 +3,17 @@
 session_start();
 
 
-$roomId = 7;//$_GET["roomId"];//Store Received RoomId From GET
+$gameRoomId = 7;//$_GET["gameRoomId"];//Store Received room id From GET
 $userName = $_SESSION["userNamePlayer"]; //use player username
-$userNameHost = $_SESSION["userNameHost"];
+$userNameHost = $_SESSION["userNameHost"]; //Store host if comming from host
 
-$_SESSION["roomId"] = $roomId; //Store Room Id in session
+$_SESSION["gameRoomId"] = $gameRoomId; //Store Room Id in session
 
 //connect to db
 include('includes/dbconfig.php');
 
 //Get Room Details to populate the page for Host
-$stmt = $pdo->prepare("SELECT * FROM `gameRoom` WHERE `gameRoomId` = '$roomId'");
+$stmt = $pdo->prepare("SELECT * FROM `gameRoom` WHERE `gameRoomId` = '$gameRoomId'");
 
 $stmt->execute();
 
@@ -69,7 +69,7 @@ $gameRow = $stmt2->fetch(PDO::FETCH_ASSOC);
 
             var playerActiveList = document.querySelectorAll('#playersActive')[0];
 
-            var gameRoomId = <?php echo($roomId)?>;
+            var gameRoomId = <?php echo($gameRoomId)?>;
 
             //Update the active list of players every 2seconds. Call update Active Players
             setInterval(updateActivePlayers, 2000);

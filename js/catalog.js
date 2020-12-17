@@ -135,7 +135,7 @@ function startGameRoom(gameId, roomFrom, hostId){
                 let roomId = this.responseText;
 
                 //go to room page!
-                location.href = "gameWaitingRoom.php?roomId="+ roomId;
+                location.href = "gameWaitingRoom.php?gameRoomId="+ roomId;
 
         }
     }

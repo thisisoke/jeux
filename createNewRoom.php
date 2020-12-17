@@ -38,7 +38,7 @@ $avatar = $userRow["avatarHost"];
 
 
 //Add Host as a player to Game Players
-$stmt3 = $pdo->prepare("INSERT INTO `gamePlayers`(`playerId`, `playerNum`, `userName`, `points`, `gameRoomId`, `avatar`) VALUES  (NULL, '1', '$userName', '0', '$gameRoomId', '$avatar');");
+$stmt3 = $pdo->prepare("INSERT INTO `gamePlayers`(`playerId`, `userName`, `points`, `gameRoomId`, `avatar`) VALUES  (NULL, '$userName', '0', '$gameRoomId', '$avatar');");
 
 $stmt3->execute();
 
