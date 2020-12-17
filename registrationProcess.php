@@ -43,7 +43,7 @@ if($row){
     $row = $stmt1->fetch(PDO::FETCH_ASSOC);
 
     //session declarations. Make the Session the user that just signed up
-    $_SESSION["userName"] = $row["userName"];
+    $_SESSION["userNameHost"] = $row["userName"];
     $_SESSION["hostId"] = $row["hostId"];
 
     //Echo a success message to front end

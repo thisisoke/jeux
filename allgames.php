@@ -2,7 +2,7 @@
 //start session
 session_start();
 
-$userInSession = $_SESSION["userName"];
+$hostInSession = $_SESSION["userNameHost"];
 $hostID = $_SESSION["hostId"];
 
 ?>
@@ -43,7 +43,7 @@ $hostID = $_SESSION["hostId"];
 
         <script> 
             //pass username to java script for pop or to edit text
-            var userInSession = "<?php echo($userInSession)?>";
+            var hostInSession = "<?php echo($hostInSession)?>";
             var hostId = "<?php echo($hostID)?>";
  
         </script>
