@@ -85,7 +85,7 @@ function viewGame(e){
 
         //Get all form for entered Game room 
         var gameRoomForm = document.querySelectorAll('#createGameRoomForm')[0];
-        gameRoomForm.addEventListener("submit",function(e){startGameRoom(listOfGames[selectedGame].gameId, e, 0)})
+        gameRoomForm.addEventListener("submit",function(e){startGameRoom(listOfGames[selectedGame].gameId, e, hostId)})
 
 
 }
@@ -114,9 +114,55 @@ function startGameRoom(gameId, roomFrom, hostId){
      //prevent default behaviour
      roomFrom.preventDefault()
 
-     console.log(roomFrom.target);
+     //console.log(roomFrom.target.elements[0].value);
+
+     let roomName = roomFrom.target.elements[0].value;
 
      //generarate 4 digital room code
+     let genRoomCode = makeCode(5);
 
-    //link to a php page for gameWaiting Room
+     let postString = "hostId="+ hostId +"&roomName="+roomName+ "&roomCode="+genRoomCode+ "&gameId="+gameId; 
+
+    //Open up a asynchronous AJAX Connection
+    //To Create new game room in Database
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(e){
+        console.log(xhr.readyState);
+        if(xhr.readyState === 4){
+            console.log(xhr.responseText);
+                //DOM Manipulation
+
+                let roomId = this.responseText;
+
+                //go to room page!
+                location.href = "allgames.php?rID"+ roomId;
+
+        }
+    }
+
+    //Make call to to php script to do the insert
+    xhr.open("POST","createNewRoom.php",true);
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    //test post string
+    console.log(postString);
+    //send post string
+    xhr.send(postString);
+
+
+
+    //link to a php page for gameWaiting Room that auto loggedin to room that was just opened
 }
+
+
+
+//Random Number Generator
+
+function makeCode(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+       result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+ }

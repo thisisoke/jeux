@@ -3,6 +3,7 @@
 session_start();
 
 $userInSession = $_SESSION["userName"];
+$hostID = $_SESSION["hostId"];
 
 ?>
 <!DOCTYPE html>
@@ -43,6 +44,7 @@ $userInSession = $_SESSION["userName"];
         <script> 
             //pass username to java script for pop or to edit text
             var userInSession = "<?php echo($userInSession)?>";
+            var hostId = "<?php echo($hostID)?>";
  
         </script>
         <script type="text/javascript" src="js/catalog.js"></script>

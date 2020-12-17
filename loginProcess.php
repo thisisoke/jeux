@@ -18,6 +18,7 @@ $row = $stmt->fetch(PDO::FETCH_ASSOC);
 if($row){
     //session declarations
     $_SESSION["userName"] = $row["userName"];
+    $_SESSION["hostId"] = $row["hostId"];
     //successful login
     echo("Succesful Login");
 } else {

@@ -39,7 +39,7 @@
         </footer>
 
         <script type="text/javascript" src="js/home.js"></script>
-        <script type="text/javascript" src="js/loginRegister.js"></script>
+
     </body>
 
 
