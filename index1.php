@@ -38,15 +38,15 @@
             
                 
             <section id="hero-carousel">
-                <div class="gameThumbnail-left"> 
+                <div class="gameThumbnail leftTilt"> 
                     <p class="gameButton"> Gif Chat <i class="fas fa-play"></i></p>
                 </div>
 
-                <div class="gameThumbnail-right"> 
+                <div class="gameThumbnail rightTilt"> 
                     <p class="gameButton"> Gif Chat <i class="fas fa-play"></i></p>
                 </div>
 
-                <div class="gameThumbnail-left"> 
+                <div class="gameThumbnail leftTilt"> 
                     <p class="gameButton"> Gif Chat <i class="fas fa-play"></i></p>
                 </div>
             <p id="round-button"><a id="allGamesLink">See All Games ></a></p>

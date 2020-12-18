@@ -19,6 +19,10 @@ html{
     height:100%;
 }
 
+footer{
+    text-align: center;
+}
+
 footer > a{
     display: inline-block;
     color: grey;
@@ -35,6 +39,14 @@ footer > a:hover{
 
     display:flex;
     justify-content: flex-start; 
+
+}
+
+#main-catalog{
+
+    display:flex;
+    justify-content: center; 
+    flex-direction: column;
 
 }
 
@@ -200,39 +212,37 @@ footer > a:hover{
 
 }
 
-.gameThumbnail-left{
+.gameThumbnail {
 
     background-color: white;
     width: 250px;
     height: 250px;
     border-radius: 10px;
+    
+
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+    
+
+}
+
+.leftTilt{
     transform: rotate(-10deg);
 
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 100px;
-    
-
 }
 
-.gameThumbnail-right{
-
-    margin-bottom: 100px;
-    background-color: white;
-    width: 250px;
-    height: 250px;
-    border-radius: 10px;
+.rightTilt{
     transform: rotate(10deg);
 
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    align-items: center;
-    
-
 }
+
+.catalog{
+    margin-right: 40px;
+}
+
 
 .gameButton {
 
@@ -257,6 +267,21 @@ footer > a:hover{
 
 }
 
+#roulett{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: flex-start;
+
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-top: 40px;
+}
+
+
 
 
 #modalBackground{
@@ -271,7 +296,9 @@ footer > a:hover{
     left:0px;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.116);
+    background-color: rgba(0, 0, 0, 0.541);
+    border-radius: 20px;
+
 
 }
 
@@ -283,16 +310,50 @@ footer > a:hover{
     width: 70%;
     height: 60%;
     background-color: white;
-    box-shadow: rgba(128, 128, 128, 0.253);
+    border-radius: 10px;
+
+    
+    
+
+}
+
+#modalRegister > h1{
+
+    font-weight: 700;
+    font-style: normal;
+    font-size: 60px;
+    width: 50%;
+    text-align: center;
+    margin: 5px;
 
 }
 
 #modalRegister > div{
-    display: block;
     width: 50%;
-  
-    padding: 60px;
-    background-color: rgba(194, 215, 255, 0.616);
-    margin: 25px;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
 
 }
+
+#modalRegister > div > div{
+    display: block;
+    width: 70%;
+    padding: 10px;
+    background-color: #F6D90F;
+    margin: 15;
+    margin-top: 5px;
+    border: 8px solid black;
+    border-radius: 5px;
+    font-size: 20px;
+
+
+}
+
+#modalRegister > div > div:first-child{
+   background-color: #8FD3EE;
+
+}
+

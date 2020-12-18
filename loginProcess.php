@@ -2,8 +2,12 @@
 //start session
 session_start();
 
-$emailAddress = $_POST["emailAddress"];
-$password = $_POST["password"];
+$emailAddress = "email@email.com"; //$_POST["emailAddress"];
+$password = "toro789"; //$_POST["password"];
+
+$sessionUserNameHost;
+
+$sessionHostId; 
 
 
 include('includes/dbconfig.php');
@@ -19,10 +23,19 @@ if($row){
     //session declarations
     $_SESSION["userNameHost"] = $row["userName"];
     $_SESSION["hostId"] = $row["hostId"];
+
+    $sessionUserNameHost = $_SESSION["userNameHost"];
+    $sessionHostId = $_SESSION["hostId"];
     //successful login
-    echo("Succesful Login");
+    //echo("Succesful Login");
+
+    //echo($sessionUserNameHost);
+    echo($sessionHostId);
 } else {
     //incorrect input
     echo("Can't log you in as a Host, something is wrong with your email or password");
 
 }
+
+
+

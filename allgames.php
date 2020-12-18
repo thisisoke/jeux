@@ -15,38 +15,39 @@ $hostID = $_SESSION["hostId"];
 
     </head>
     <body onload="loadGames()">
-    
-        <section class="navigation">
-            <img id="logo" src="images/SVG/jeux-logo-colour.svg" alt="jeux logo"/>
+
+        <div class="navigation">
+            <p id="loginRegisterButton" >Show Host Username</p>
+        </div>
             
 
-        </section>
+        <section id="main-catalog">
 
-        <section id="main">
+            <div id="logo-container" style="margin-top: 5%;">
+                    <img id="logo" src="images/jeux-logo.png" alt="Jeux logo" >
+            </div>
         
             <section id="roulett" >
+                <div class="gameThumbnail catalog"> 
+                    <p class="gameButton"> Games Loading <i class="fas fa-play"></i></p>
+                </div>
+
+                <div class="gameThumbnail catalog"> 
+                    <p class="gameButton"> Games Loading <i class="fas fa-play"></i></p>
+                </div>
 
             
 
             </section>
-
-            <section id="content">
-
-            </section>
+            <footer id="footer">
+                <a href="https://twitter.com/thisisoke"> Made by @thisisoke</a>
+            </footer>
 
         </section>
 
-        <footer id="footer">
-
-        </footer>
+        
 
 
-        <script> 
-            //pass username to java script for pop or to edit text
-            var hostInSession = "<?php echo($hostInSession)?>";
-            var hostId = "<?php echo($hostID)?>";
- 
-        </script>
         <script type="text/javascript" src="js/catalog.js"></script>
 
     </body>

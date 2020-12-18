@@ -1,7 +1,7 @@
 
 var gamesSection = document.querySelectorAll('#roulett')[0];
 
-console.log(userInSession);
+//console.log(userInSession);
 
 //Select the entire body element for use for modal insertion
 var main = document.getElementsByTagName("BODY");
@@ -25,7 +25,7 @@ function loadGames(){
             let parseGames = "";
 
             for(i = 0; i < listOfGames.length; i++){
-                parseGames += "<p data-gameArrayId='"+ parseInt(i) + "' >"+ listOfGames[i].name + "</p>";
+                parseGames += "<div class='gameThumbnail catalog'><p class='gameButton' data-gameArrayId='"+ parseInt(i) + "' >"+ listOfGames[i].name + "<i class='fas fa-play'></i></p></div>";
             }
             console.log(parseGames);
             
@@ -78,7 +78,7 @@ function viewGame(e){
         gameModalHTML = "<section id='modalBackground'><div id='gamePreviewModal'><div><img src='images/"+ listOfGames[selectedGame].gameImage +"' alt='Game thumbnail picture for "+ listOfGames[selectedGame].name +"' width='100'><h2> "+ listOfGames[selectedGame].name +"</h2><p> "+ listOfGames[selectedGame].description +"</p><p> Amount of Players: "+ listOfGames[selectedGame].playerLimit +"</p></div><form action='#' method='POST' id='createGameRoomForm'><input type='text' name='gameRoomName' placeholder='Write a unique Room Name' required/><button type='submit' value='createRoom'  class='button'>Open New Game Room</button></form></div></section>"
 
 
-        body[0].insertAdjacentHTML('beforeend', gameModalHTML);
+        main[0].insertAdjacentHTML('beforeend', gameModalHTML);
 
         modalBack = document.querySelectorAll('#modalBackground')[0];
         modalBack.addEventListener("click",exitModal)
