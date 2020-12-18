@@ -4,7 +4,7 @@ var gamesSection = document.querySelectorAll('#roulett')[0];
 console.log(userInSession);
 
 //Select the entire body element for use for modal insertion
-var body = document.getElementsByTagName("BODY");
+var main = document.getElementsByTagName("BODY");
 
 let listOfGames;
 let gameSelectList;

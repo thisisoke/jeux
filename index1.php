@@ -49,11 +49,11 @@
                 <div class="gameThumbnail-left"> 
                     <p class="gameButton"> Gif Chat <i class="fas fa-play"></i></p>
                 </div>
-            <p><a href="allgames.php">See All Games ></a></p>
+            <p id="round-button"><a id="allGamesLink">See All Games ></a></p>
 
 
             <footer id="footer">
-                <p>Made by @thisisoke<p>
+                <a href="https://twitter.com/thisisoke"> Made by @thisisoke</a>
             </footer>
 
             </section>

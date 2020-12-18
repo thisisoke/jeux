@@ -1,8 +1,11 @@
 
 var gamesSection = document.querySelectorAll('#hero-carousel')[0];
 
-//Select the entire body element for use for modal insertion
-var body = document.getElementsByTagName("BODY");
+//Select the element for use for modal insertion
+//var place = document.querySelectorAll('#main')[0];
+
+var place = document.getElementsByTagName("BODY")[0];
+console.log(place);
 
 //loadGames();
 
@@ -47,7 +50,7 @@ function loadGames(){
 }
 
 
-var loginButton = document.querySelectorAll('#loginRegisterButton, #play-button');
+var loginButton = document.querySelectorAll('#loginRegisterButton, #play-button, #allGamesLink');
 
 
 var modalBack;
@@ -63,13 +66,13 @@ loginButton[i].addEventListener("click",loginRegister)
 function loginRegister(){
     console.log("loginRester Works");
 
-    console.log(body[0]);
+    console.log(place);
 
     var modalHTML= "<section id='modalBackground'><div id='modalRegister'><div id='login'><h2> Login<h2><form action='#' method='POST' id='Login-form'><input type='email' name='emailAddress' placeholder='Enter Your Email Address' required/><input type='password' name='password' placeholder='Enter Your Password' required/><button type='submit' value='LogIn'  class='button'>Login</button></form></div><div id='register'><h2> Sign Up to Host a Game! <h2><form action='#' method='POST' id='Register-form'><input type='text' name='userName' placeholder='Choose Your Username' required/><input type='email' name='emailAddress' placeholder='Enter Your Email Address' required/><input type='password' name='password' placeholder='Enter Your Password' required/><select name='avatar' id='avatarOptions'><option value='1' >smoothbrain</option><option value='2'>brain</option><option value='3'>galaxybrain</option></select><button type='submit' value='Register'  class='button'>Register</button></form></div></div></section>"
     
     
 
-    body[0].insertAdjacentHTML('beforeend', modalHTML);
+    place.insertAdjacentHTML('afterbegin', modalHTML);
 
     modalBack = document.querySelectorAll('#modalBackground')[0];
     modalBack.addEventListener("click",exitModal)
