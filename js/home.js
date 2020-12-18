@@ -1,5 +1,5 @@
 
-var gamesSection = document.querySelectorAll('#hero-roulett')[0];
+var gamesSection = document.querySelectorAll('#hero-carousel')[0];
 
 //Select the entire body element for use for modal insertion
 var body = document.getElementsByTagName("BODY");
@@ -28,7 +28,10 @@ function loadGames(){
             }
             console.log(parseGames);
             
-            gamesSection.innerHTML = parseGames;
+            //gamesSection.innerHTML = parseGames;
+
+            //insert list of gmaes as the first child of the hero-carousel
+            gamesSection.insertAdjacentHTML('afterbegin', parseGames);
 
         }
     }
@@ -44,14 +47,18 @@ function loadGames(){
 }
 
 
-var loginButton = document.querySelectorAll('#loginRegisterButton')[0];
+var loginButton = document.querySelectorAll('#loginRegisterButton, #play-button');
+
 
 var modalBack;
 var loginForm;
 var registerForm;
 
 console.log(loginButton);
-loginButton.addEventListener("click",loginRegister)
+
+for(i=0; i < loginButton.length; i++){
+loginButton[i].addEventListener("click",loginRegister)
+}
 
 function loginRegister(){
     console.log("loginRester Works");
