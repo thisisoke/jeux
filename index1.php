@@ -17,7 +17,7 @@
             <section id="section-left">
 
             <div class="navigation">
-                <button id="loginRegisterButton" type="button">Login in to Play</button>
+                <p id="loginRegisterButton" >Login/Sign Up</p>
             </div>
 
             <div id="hero-content">
@@ -29,6 +29,8 @@
                     <img id="fiends-stickers" src="images/friends-stickers-jeux.png" alt="Jeux Friends Stickers">
                 </div>
 
+            
+
             </div>
 
             </section>
@@ -36,21 +38,33 @@
             
                 
             <section id="hero-carousel">
+                <div class="gameThumbnail-left"> 
+                    <p class="gameButton"> Gif Chat <i class="fas fa-play"></i></p>
+                </div>
 
+                <div class="gameThumbnail-right"> 
+                    <p class="gameButton"> Gif Chat <i class="fas fa-play"></i></p>
+                </div>
+
+                <div class="gameThumbnail-left"> 
+                    <p class="gameButton"> Gif Chat <i class="fas fa-play"></i></p>
+                </div>
             <p><a href="allgames.php">See All Games ></a></p>
+
+
+            <footer id="footer">
+                <p>Made by @thisisoke<p>
+            </footer>
 
             </section>
             
 
             
-        </section>
-    
-
+        </section> 
+        
         
 
-        <footer id="footer">
-            <p>footer<p>
-        </footer>
+        
 
         <script type="text/javascript" src="js/home.js"></script>
 

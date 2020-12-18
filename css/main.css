@@ -6,7 +6,7 @@ body {
     background-color: #0B0B24;
     
     height:100%;
-    overflow: hidden; 
+    /* overflow: hidden;  */
     margin: 0px;
 
     font-family: houschka-rounded,sans-serif;
@@ -19,11 +19,17 @@ html{
     height:100%;
 }
 
+footer{
+    display: inline-block;
+    color: grey;
+    font-weight: 500;
+    font-style: normal;
+}
+
 #main{
 
     display:flex;
     justify-content: flex-start; 
-    
 
 }
 
@@ -32,14 +38,21 @@ html{
     width: 70vw;
     height: 100vh;
     overflow: hidden;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
 }
 
 #hero-carousel {
 
     width: 30vw;
-    height: 100vh;
+    height: 150vh; 
     overflow: hidden;
     padding: 0px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 
     background-color: #26263C;
 }
@@ -126,8 +139,82 @@ html{
 
 #loginRegisterButton{
 
-    color: blue;
+    color: grey;
+    font-family: houschka-rounded, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    margin: 20px;
+    font-size: 20px;
+    text-decoration: underline
+
 }
+
+
+
+#loginRegisterButton:hover{
+    color: #FD6D00;
+    text-decoration: none;
+
+}
+
+.gameThumbnail-left{
+
+    background-color: white;
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    transform: rotate(-10deg);
+
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+    
+
+}
+
+.gameThumbnail-right{
+
+    margin-bottom: 100px;
+    background-color: white;
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    transform: rotate(10deg);
+
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+    
+
+}
+
+.gameButton {
+
+    display: inline-block;
+    width: 160px;
+    font-size: 25px;
+    padding: 4px;
+    padding-left: 20px;
+    background-color: black;
+    border-radius: 110px;
+    border:none;
+    text-decoration: none;
+
+    /* padding-bottom: 4px; */
+    color: white;
+
+    font-weight: 700;
+    font-style: normal;
+    text-align:center;
+
+    box-shadow: 0px 0px 9px #00000081;
+
+}
+
+
 
 #modalBackground{
 
