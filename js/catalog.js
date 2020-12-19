@@ -1,62 +1,24 @@
 
-var gamesSection = document.querySelectorAll('#roulett')[0];
 
-//console.log(userInSession);
 
 //Select the entire body element for use for modal insertion
-var main = document.getElementsByTagName("BODY");
+var main = document.getElementsByTagName("BODY")[0];
 
 // let listOfGames;
 let gameSelectList;
 
-function loadGames(){
 
-    console.log("Load list of games");
+gameSelectList = document.querySelectorAll('[data-gameId]');
 
-    //Open up a asynchronous AJAX Connection
-    var xhr = new XMLHttpRequest(); 
-    xhr.onreadystatechange = function(e){     
-        console.log(xhr.readyState); 
-        if(xhr.readyState === 4){ 
+console.log(gameSelectList);
 
-            listOfGames = JSON.parse(this.responseText);
-            console.log(listOfGames);
+//Add event listener to each game loaded
+for(i = 0; i < gameSelectList.length; i++){
 
-            let parseGames = "";
-
-            for(i = 0; i < listOfGames.length; i++){
-                parseGames += "<div class='gameThumbnail catalog'><p class='gameButton' data-gameArrayId='"+ parseInt(i) + "' >"+ listOfGames[i].name + " "+"<i class='fas fa-play'></i></p></div>";
-            }
-            console.log(parseGames);
-            
-            gamesSection.innerHTML = parseGames;
-
-            gameSelectList = document.querySelectorAll('[data-gameArrayId]');
-
-            console.log(gameSelectList);
-
-            //Add event listener to each game loaded
-            for(i = 0; i < gameSelectList.length; i++){
-
-                gameSelectList[i].addEventListener("click", viewGame);
-
-
-            }
-
-
-        }
-    }
-
-
-    //Make call to to php script to do the GET featured articles
-    
-    xhr.open("GET","listofgames.php",true); 
-    xhr.send();
-    //console.log(getString);
-
-
+    gameSelectList[i].addEventListener("click", viewGame);
 
 }
+
 
 var modalBack; //used to access the modal box at the back
 var gameModalHTML; //used to store the game modal HTML
@@ -64,28 +26,44 @@ var gameModalHTML; //used to store the game modal HTML
 function viewGame(e){
 
         console.log(e);
-        console.log("selected game: " + e.target.dataset.gamearrayid);
+        console.log("selected game: " + e.target.dataset.gameid);
 
         
+        let selectedGame = e.target.dataset.gameid;
+        var gameJson;
 
-        let selectedGame = e.target.dataset.gamearrayid;
-
-        console.log(listOfGames[selectedGame].description);
-        console.log(listOfGames[selectedGame].name);
-
-        // Insert Modal that shows selected game woth button to start
-
-        gameModalHTML = "<section id='modalBackground'><div id='gamePreviewModal'><div><img src='images/"+ listOfGames[selectedGame].gameImage +"' alt='Game thumbnail picture for "+ listOfGames[selectedGame].name +"' width='100'><h2> "+ listOfGames[selectedGame].name +"</h2><p> "+ listOfGames[selectedGame].description +"</p><p> Amount of Players: "+ listOfGames[selectedGame].playerLimit +"</p></div><form action='#' method='POST' id='createGameRoomForm'><input type='text' name='gameRoomName' placeholder='Write a unique Room Name' required/><button type='submit' value='createRoom'  class='button'>Open New Game Room</button></form></div></section>"
+        //Open up a asynchronous AJAX Connection
+        var xhr = new XMLHttpRequest(); 
+        xhr.onreadystatechange = function(e){     
+            console.log(xhr.readyState); 
+            if(xhr.readyState === 4){ 
 
 
-        main[0].insertAdjacentHTML('beforeend', gameModalHTML);
 
-        modalBack = document.querySelectorAll('#modalBackground')[0];
-        modalBack.addEventListener("click",exitModal)
+                gameJson = JSON.parse(this.responseText);
+                console.log(gameJson);
 
-        //Get all form for entered Game room 
-        var gameRoomForm = document.querySelectorAll('#createGameRoomForm')[0];
-        gameRoomForm.addEventListener("submit",function(e){startGameRoom(listOfGames[selectedGame].gameId, e, hostId)})
+                // Insert Modal that shows selected game with button to start
+
+                gameModalHTML = "<section id='modalBackground'><div id='gamePreviewModal'><div><img src='images/"+ gameJson[0].gameImage +"' alt='Game thumbnail picture for "+ gameJson[0].name +"' width='100'><h2> "+ gameJson[0].name +"</h2><p> "+ gameJson[0].description +"</p><p> Amount of Players: "+ gameJson[0].playerLimit +"</p></div><form action='#' method='POST' id='createGameRoomForm'><input type='text' name='gameRoomName' placeholder='Write a unique Room Name' required/><button type='submit' value='createRoom'  class='button'>Open New Game Room</button></form></div></section>"
+
+                main.insertAdjacentHTML('beforeend', gameModalHTML);
+
+                modalBack = document.querySelectorAll('#modalBackground')[0];
+                modalBack.addEventListener("click",exitModal)
+
+                //Get all form for entered Game room 
+                var gameRoomForm = document.querySelectorAll('#createGameRoomForm')[0];
+
+                console.log(gameRoomForm);
+                gameRoomForm.addEventListener("submit",function(e){startGameRoom(gameJson[0].gameId, e, hostId)})
+
+            }
+        }
+
+        xhr.open("GET","listofgames.php?gameId="+ selectedGame,true); 
+        xhr.send();
+
 
 
 }
@@ -158,11 +136,54 @@ function startGameRoom(gameId, roomFrom, hostId){
 //Random Number Generator
 
 function makeCode(length) {
-    var result           = '';
-    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var result = '';
+    var characters= 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     var charactersLength = characters.length;
     for ( var i = 0; i < length; i++ ) {
        result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
  }
+
+
+
+ function loadGames(){
+
+    console.log("Load list of games");
+
+    //Open up a asynchronous AJAX Connection
+    var xhr = new XMLHttpRequest(); 
+    xhr.onreadystatechange = function(e){     
+        console.log(xhr.readyState); 
+        if(xhr.readyState === 4){ 
+
+            //listOfGames = JSON.parse(this.responseText);
+            //console.log(listOfGames);
+
+            let parseGames = "";
+
+            for(i = 0; i < listOfGames.length; i++){
+                parseGames += "<div class='gameThumbnail catalog'><p class='gameButton' data-gameArrayId='"+ parseInt(i) + "' >"+ listOfGames[i].name + " "+"<i class='fas fa-play'></i></p></div>";
+            }
+            console.log(parseGames);
+            
+            //gamesSection.innerHTML = parseGames;
+
+
+
+
+
+
+        }
+    }
+
+
+    //Make call to to php script to do the GET featured articles
+    
+    xhr.open("GET","listofgames.php",true); 
+    xhr.send();
+    //console.log(getString);
+
+
+
+}

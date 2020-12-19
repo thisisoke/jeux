@@ -2,11 +2,12 @@
 //connect to db
 include('includes/dbconfig.php');
 
-$getCondition = $_GET["featured"]; //can be 1 or 0. Featured is for 1 all is O
+$getFeatured = $_GET["featured"]; //can be 1 or 0. Featured is for 1 all is O
+$getGameId = $_GET["gameId"];//when the user sends the game id
 
 
-//If the get condition asks for featured articles
-if ($getCondition == 1){
+//If the get condition asks for featured articles, all game, or a specific game
+if (isset($getFeatured) && $getFeatured == 1 ){
 
     //Get games that are featured
     $stmt = $pdo->prepare("SELECT * FROM `games` WHERE `featuredGameFlag` = 1 ");
@@ -14,13 +15,21 @@ if ($getCondition == 1){
     //Count how many featured
     $stmt2 = $pdo->prepare("SELECT COUNT(gameId) FROM `games` WHERE `featuredGameFlag` = 1 ");
 
-} else {
+} else if(isset($getFeatured) && $getFeatured == 0) {
 
     //Get all games
     $stmt = $pdo->prepare("SELECT * FROM `games`");
 
     //Count how many games exit
     $stmt2 = $pdo->prepare("SELECT COUNT(gameId) FROM `games`");
+
+} else if(isset($getGameId)) {
+
+    //Get a specific games
+    $stmt = $pdo->prepare("SELECT * FROM `games` WHERE `gameId` = '$getGameId' ");
+
+    //Count how many games exit
+    $stmt2 = $pdo->prepare("SELECT COUNT(gameId) FROM `games` WHERE `gameId` = '$getGameId' ");
 
 }
 

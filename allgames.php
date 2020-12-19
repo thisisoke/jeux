@@ -27,12 +27,9 @@ $stmt->execute();
 
     <?php include('globalheader.php'); ?>
 
-    <!-- <script>
-        let listOfGames = <?php echo ($featuredGamesJSON);?>; 
-    </script> -->
 
     </head>
-    <body onload="loadGames()">
+    <body>
 
         <div class="navigation">
             <p id="loginRegisterButton" ><?php echo ($hostInSession) ?></p>
@@ -54,7 +51,7 @@ $stmt->execute();
 
                     //cycles through
                     ?>
-                    <div class='gameThumbnail catalog' style="background-image: url('<?php echo('imgs/'.$result["gameImage"]);?>') ; background-size: cover">
+                    <div class='gameThumbnail catalog' style="background-image: url('<?php echo('images/'.$result["gameImage"]);?>') ; background-size: cover">
                         <p class='gameButton' data-gameId='<?php echo($result["gameId"]);?>' ><?php echo($result["name"].' ');?><i class='fas fa-play'></i></p>
                     </div>
                 <?php
@@ -74,7 +71,7 @@ $stmt->execute();
         
 
 
-        <!-- <script type="text/javascript" src="js/catalog.js"></script> -->
+        <script type="text/javascript" src="js/catalog.js"></script>
 
     </body>
 
