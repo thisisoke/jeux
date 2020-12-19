@@ -32,9 +32,8 @@ $stmt->execute();
     <body>
 
         <div class="navigation">
-            <p id="loginRegisterButton" ><?php echo ($hostInSession) ?></p>
-            <p style="color: white;"> Open Rooms</p>
-            <p style="color: white;"> Score Boards</p>
+            <a href="logout.php" class="navLink"> Log Out: <?php echo ($hostInSession); ?></a>
+            <a href="roomManagment.php" class="navLink"> Manage Rooms</a>
         </div>
             
 
@@ -69,8 +68,12 @@ $stmt->execute();
         </section>
 
         
+        <script>
+            var hostId = <?php echo($hostID); ?> ;
 
+        </script>
 
+        
         <script type="text/javascript" src="js/catalog.js"></script>
 
     </body>

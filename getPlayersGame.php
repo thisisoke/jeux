@@ -4,7 +4,7 @@
 //connect to db
 include('includes/dbconfig.php');
 
-$gameRoomId = 7;//$_GET["gameRoomId"]; //gameroomId 
+$gameRoomId = $_GET["gameRoomId"]; //gameroomId 
 
 
     //Get players in a game room

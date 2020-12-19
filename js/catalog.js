@@ -1,5 +1,5 @@
 
-
+console.log(hostId);
 
 //Select the entire body element for use for modal insertion
 var main = document.getElementsByTagName("BODY")[0];
@@ -57,10 +57,23 @@ function viewGame(e){
                 modalBack.addEventListener("click",exitModal)
 
                 //Get all form for entered Game room 
-                var gameRoomForm = document.querySelectorAll('#createGameRoomForm')[0];
+                var gameRoomForm = document.querySelectorAll("#createGameRoomForm")[0];
 
                 console.log(gameRoomForm);
-                gameRoomForm.addEventListener("submit",function(e){startGameRoom(gameJson[0].gameId, e, hostId)})
+                gameRoomForm.addEventListener("submit", startGameRoomTemp);
+
+                function  startGameRoomTemp (e){
+                    console.log("startGameRoomTemp Called");
+                    //prevent default behaviour
+                    e.preventDefault();
+
+                    startGameRoom(gameJson[0].gameId, e, hostId);
+                
+                }
+
+
+
+                // gameRoomForm.addEventListener("submit",function(){startGameRoom(gameJson[0].gameId, event, hostId)},false)
 
             }
         }
@@ -91,8 +104,10 @@ function exitModal(e){
 
 
 
+
+
 function startGameRoom(gameId, roomFrom, hostId){
-    console.log("startGame Called");
+    console.log("startGameRoom Called");
      //prevent default behaviour
      roomFrom.preventDefault()
 
@@ -117,6 +132,7 @@ function startGameRoom(gameId, roomFrom, hostId){
                 let roomId = this.responseText;
 
                 //go to room page!
+                    //link to a php page for gameWaiting Room that auto loggedin to room that was just opened
                 location.href = "gameWaitingRoom.php?gameRoomId="+ roomId;
 
         }
@@ -132,7 +148,7 @@ function startGameRoom(gameId, roomFrom, hostId){
 
 
 
-    //link to a php page for gameWaiting Room that auto loggedin to room that was just opened
+
 }
 
 
@@ -149,45 +165,3 @@ function makeCode(length) {
     return result;
  }
 
-
-
- function loadGames(){
-
-    console.log("Load list of games");
-
-    //Open up a asynchronous AJAX Connection
-    var xhr = new XMLHttpRequest(); 
-    xhr.onreadystatechange = function(e){     
-        console.log(xhr.readyState); 
-        if(xhr.readyState === 4){ 
-
-            //listOfGames = JSON.parse(this.responseText);
-            //console.log(listOfGames);
-
-            let parseGames = "";
-
-            for(i = 0; i < listOfGames.length; i++){
-                parseGames += "<div class='gameThumbnail catalog'><p class='gameButton' data-gameArrayId='"+ parseInt(i) + "' >"+ listOfGames[i].name + " "+"<i class='fas fa-play'></i></p></div>";
-            }
-            console.log(parseGames);
-            
-            //gamesSection.innerHTML = parseGames;
-
-
-
-
-
-
-        }
-    }
-
-
-    //Make call to to php script to do the GET featured articles
-    
-    xhr.open("GET","listofgames.php",true); 
-    xhr.send();
-    //console.log(getString);
-
-
-
-}

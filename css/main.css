@@ -79,6 +79,44 @@ footer > a:hover{
     display:flex;
     justify-content: flex-end; 
     width: 100%;
+    position: absolute;
+    top: 0px;
+    padding: 10px 20px 0px 0px;
+
+    color: grey;
+    font-family: houschka-rounded, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 16px;
+    align-items: center;
+  
+
+
+
+}
+
+
+
+.navigation > img {
+
+    height: 30px;
+}
+
+.navLink{
+
+    color: grey;
+    font-family: houschka-rounded, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    margin: 20px;
+    text-decoration: underline
+    
+}
+
+
+.navLink:hover{
+    color: #FD6D00;
+    text-decoration: none;
 
 }
 
@@ -243,6 +281,56 @@ footer > a:hover{
     margin-right: 40px;
 }
 
+.gameRoom{
+    position: relative;
+    margin-left: 50px;
+    top: 100px;
+    
+
+}
+
+.gameDescription{
+    margin-left: 50px;
+    width: 30%;
+    position: relative;
+    top: 100px;
+
+}
+
+.gameDescription > h1{
+    margin: 0;
+
+    color:white;
+    font-family: houschka-rounded, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 80px;
+
+
+
+}
+
+.gameDescription > p {
+
+    color:white;
+    font-family: houschka-rounded, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 34px;
+    margin: 0px;
+    
+}
+
+.gameDescription > .smaller {
+
+
+    font-size: 18px;
+    margin: 0px;
+    font-style: italic;
+    color: #FD6D00;
+    
+}
+
 
 .gameButton {
 
@@ -385,6 +473,147 @@ footer > a:hover{
 
 }
 
+
+#gameRoomSection{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+
+
+}
+
+#gameInfo{
+    width: 100vw;
+    height: 50vh;
+
+    display: flex;
+    justify-content: flex-start;
+
+    
+
+}
+
+#waitingRoomView{
+
+    width: 100vw;
+    height: 50vh;
+    background-color: #26263C;
+
+    
+    display: flex;
+    justify-content: space-around;
+
+}
+
+#waitingRoomView > div {
+
+    width: 50%;
+
+    padding-left: 50px;
+
+    
+}
+
+#waitingRoomView > div > h2 {
+
+    color:white;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 80px;
+    margin: 0px;
+    margin-top: 50px;
+
+    
+}
+
+
+
+#playersActiveSection > p {
+
+    font-weight: 300;
+    font-style: italic;
+    font-size: 15px;
+    color: #FD6D00;
+
+}
+
+#playersActive{
+
+    display: flex;
+    justify-content: space-around;
+}
+
+#playersActive > div > p {
+
+    font-weight: 300;
+    font-style: normal;
+    font-size: 18px;
+    color:white;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.dottedCircle{
+
+    width: 100px;
+    height: 100px;
+    background-color: #0b0b2459;
+    border: 7px dashed #0B0B24;
+    border-radius: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+
+
+}
+
+.dottedCircle > img {
+
+    width: 90px;
+
+}
+
+#startGameButton{
+
+    display: inline-block;
+    width: 300px;
+    padding-left: 40px;
+    border: 3px solid #FD6D00;
+    border-radius: 110px;
+    font-weight: 700;
+    font-style: italic;
+    padding-bottom: 2px;
+    font-size: 40px;
+    color: white;
+    text-decoration: none;
+
+
+}
+
+
+#waitingRoomView > div:nth-child(2) {
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+    
+}
+
+
+#waitingRoomView > div:nth-child(2) > p {
+
+    font-weight: 500;
+    font-style: normal;
+    font-size: 40px;
+    color: white;
+    
+}
 
 
 

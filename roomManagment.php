@@ -1,33 +1,21 @@
 <?php
+//Get all rooms Host as sarted to be able to delete
+//Javascript can delete the room
 //start session
 session_start();
 
+$hostInSession = $_SESSION["userNameHost"];
+$hostId = $_SESSION["hostId"];
 
-$gameRoomId = $_GET["gameRoomId"];//Store Received room id From GET
-$userName = $_SESSION["userNamePlayer"]; //use player username
-$userNameHost = $_SESSION["userNameHost"]; //Store host if comming from host
-
-$_SESSION["gameRoomId"] = $gameRoomId; //Store Room Id in session
 
 //connect to db
 include('includes/dbconfig.php');
 
 //Get Room Details to populate the page for Host
-$stmt = $pdo->prepare("SELECT * FROM `gameRoom` WHERE `gameRoomId` = '$gameRoomId'");
+$stmt = $pdo->prepare("SELECT * FROM `gameRoom` WHERE `hostId` = '$hostId'");
 
 $stmt->execute();
 
-$row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-//get game id of room created
-$gameId = $row["gameId"];
-
-//Get game being played from the game ID 
-$stmt2 = $pdo->prepare("SELECT * FROM `games` WHERE `gameId` = '$gameId' ");
-
-$stmt2->execute();
-
-$gameRow = $stmt2->fetch(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -42,9 +30,46 @@ $gameRow = $stmt2->fetch(PDO::FETCH_ASSOC);
     <body>
         <div class="navigation">
             <img id="logo" src="images/jeux-logo.png" alt="Jeux logo" >
-            <a href="logout.php" class="navLink"> Log Out: <?php echo ($userNameHost); ?></a>
-            <a href="roomManagment.php" class="navLink"> Manage Rooms</a>
+            <a href="logout.php" class="navLink"> Log Out: <?php echo ($hostInSession); ?></a>
+            <a href="roomManagment.php" class="navLink"> Open Rooms</a>
         </div>
+
+        <?php
+        while($result= $stmt->fetch(PDO::FETCH_NAMED)){
+
+            //STORE IN ARRAY FOR JAVA SCRIPT TO BE ABLE TO DELETE
+            ?>
+
+            <h1> <?php echo($result["roomName"])?> </h1>
+            <h1> <?php echo($result["roomCode"])?> </h1>
+
+
+             
+
+        <?php
+
+            $gameRoomId = $result["gameRoomId"];
+
+            $stmt2 = $pdo->prepare("SELECT * FROM `gamePlayers` WHERE `gameRoomId` = '$gameRoomId'");
+
+             $stmt2->execute();
+
+            while($player= $stmt2->fetch(PDO::FETCH_NAMED)){
+
+                ?>
+
+                <h1> <?php echo($player["userName"])?> </h1>
+                <h1> <?php echo($player["points"])?> </h1>
+                <h1> <?php echo($player["avatar"])?> </h1>
+
+            <?php
+
+            }
+
+
+        }
+
+        ?>
         <section class="gameRoomSection">
 
 
