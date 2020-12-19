@@ -6,7 +6,7 @@ var gamesSection = document.querySelectorAll('#roulett')[0];
 //Select the entire body element for use for modal insertion
 var main = document.getElementsByTagName("BODY");
 
-let listOfGames;
+// let listOfGames;
 let gameSelectList;
 
 function loadGames(){
@@ -25,7 +25,7 @@ function loadGames(){
             let parseGames = "";
 
             for(i = 0; i < listOfGames.length; i++){
-                parseGames += "<div class='gameThumbnail catalog'><p class='gameButton' data-gameArrayId='"+ parseInt(i) + "' >"+ listOfGames[i].name + "<i class='fas fa-play'></i></p></div>";
+                parseGames += "<div class='gameThumbnail catalog'><p class='gameButton' data-gameArrayId='"+ parseInt(i) + "' >"+ listOfGames[i].name + " "+"<i class='fas fa-play'></i></p></div>";
             }
             console.log(parseGames);
             

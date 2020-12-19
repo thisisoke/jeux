@@ -5,7 +5,21 @@ session_start();
 $hostInSession = $_SESSION["userNameHost"];
 $hostID = $_SESSION["hostId"];
 
+
+//connect to db
+include('includes/dbconfig.php');
+
+//Get all games
+$stmt = $pdo->prepare("SELECT * FROM `games`");
+
+
+//excute statement to get actual table data
+$stmt->execute();
+
+
 ?>
+
+
 <!DOCTYPE html>
 
 <html>
@@ -13,11 +27,17 @@ $hostID = $_SESSION["hostId"];
 
     <?php include('globalheader.php'); ?>
 
+    <!-- <script>
+        let listOfGames = <?php echo ($featuredGamesJSON);?>; 
+    </script> -->
+
     </head>
     <body onload="loadGames()">
 
         <div class="navigation">
-            <p id="loginRegisterButton" >Show Host Username</p>
+            <p id="loginRegisterButton" ><?php echo ($hostInSession) ?></p>
+            <p style="color: white;"> Open Rooms</p>
+            <p style="color: white;"> Score Boards</p>
         </div>
             
 
@@ -28,13 +48,19 @@ $hostID = $_SESSION["hostId"];
             </div>
         
             <section id="roulett" >
-                <div class="gameThumbnail catalog"> 
-                    <p class="gameButton"> Games Loading <i class="fas fa-play"></i></p>
-                </div>
 
-                <div class="gameThumbnail catalog"> 
-                    <p class="gameButton"> Games Loading <i class="fas fa-play"></i></p>
-                </div>
+            <?php 
+                while($result= $stmt->fetch(PDO::FETCH_NAMED)){
+
+                    //cycles through
+                    ?>
+                    <div class='gameThumbnail catalog' style="background-image: url('<?php echo('imgs/'.$result["gameImage"]);?>') ; background-size: cover">
+                        <p class='gameButton' data-gameId='<?php echo($result["gameId"]);?>' ><?php echo($result["name"].' ');?><i class='fas fa-play'></i></p>
+                    </div>
+                <?php
+
+                } 
+                ?>
 
             
 
@@ -48,7 +74,7 @@ $hostID = $_SESSION["hostId"];
         
 
 
-        <script type="text/javascript" src="js/catalog.js"></script>
+        <!-- <script type="text/javascript" src="js/catalog.js"></script> -->
 
     </body>
 
