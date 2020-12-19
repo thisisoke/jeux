@@ -44,8 +44,12 @@ function viewGame(e){
                 console.log(gameJson);
 
                 // Insert Modal that shows selected game with button to start
+                // var singleQuote = "'";style='background-image: url('images/"+ gameJson[0].gameImage +"')'
+                
+                // .style.backgroundImage = "url('asset/" + gameJson[0].gameImage +"')";
 
-                gameModalHTML = "<section id='modalBackground'><div id='gamePreviewModal'><div><img src='images/"+ gameJson[0].gameImage +"' alt='Game thumbnail picture for "+ gameJson[0].name +"' width='100'><h2> "+ gameJson[0].name +"</h2><p> "+ gameJson[0].description +"</p><p> Amount of Players: "+ gameJson[0].playerLimit +"</p></div><form action='#' method='POST' id='createGameRoomForm'><input type='text' name='gameRoomName' placeholder='Write a unique Room Name' required/><button type='submit' value='createRoom'  class='button'>Open New Game Room</button></form></div></section>"
+                // style='background-image: url(\"images/"+ gameJson[0].gameImage +"'\") ; background-size: cover \"
+                gameModalHTML = "<section id='modalBackground'><div id='gamePreviewModal'><div class='gameThumbnail' ><h2> "+ gameJson[0].name +"</h2><p> "+ gameJson[0].description +"</p><p> Amount of Players: "+ gameJson[0].playerLimit +"</p></div><form action='#' method='POST' id='createGameRoomForm'><input type='text' name='gameRoomName' placeholder='Write a unique Room Name' required/><button type='submit' value='createRoom'  class='button'>Open New Game Room</button></form></div></section>"
 
                 main.insertAdjacentHTML('beforeend', gameModalHTML);
 

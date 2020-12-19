@@ -369,10 +369,22 @@ footer > a:hover{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 70%;
-    height: 60%;
+    flex-direction: column;
+    width: 40%;
+    height: 50%;
     background-color: white;
     border-radius: 10px;
 
+
 }
+
+#gamePreviewModal > div{
+
+    /* background-size: cover; */
+
+
+}
+
+
+
 
