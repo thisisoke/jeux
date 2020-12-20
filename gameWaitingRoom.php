@@ -52,7 +52,7 @@ $gameRow = $stmt2->fetch(PDO::FETCH_ASSOC);
                 <div class='gameThumbnail gameRoom' style="background-image: url('<?php echo('images/'.$gameRow["gameImage"]);?>') ; background-size: cover">
                 </div>
 
-                <div class='gameDescription'>
+                <div class='gameRoomDescription'>
                     <h1> <?php echo($gameRow["name"]);?></h1>
                     <p class="smaller"> PLAYER AMOUNT :<?php echo($gameRow["playerLimit"]);?> </p>
                     <p> <?php echo($gameRow["description"]);?></p>
@@ -66,8 +66,8 @@ $gameRow = $stmt2->fetch(PDO::FETCH_ASSOC);
                     <h2> <?php echo($row["roomName"]);?> Room </h2>
 
                     <div id="playersActiveSection">
-
-                        <p>www.jeux.com/joinGame.php</p>
+                    
+                        <p><span>JOIN GAMEROOM: </span> www.jeux.com/joinGame.php</p>
                     
                         <div id="playersActive">
                         <?php 

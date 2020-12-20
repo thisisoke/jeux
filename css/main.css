@@ -289,15 +289,43 @@ footer > a:hover{
 
 }
 
+.gameRoomDescription{
+    margin-left: 50px;
+    width: 30%;
+    position: relative;
+    top: 100px;
+}
+
+.gameRoomDescription > h1{
+    margin: 0;
+
+    color:white;
+    font-family: houschka-rounded, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 80px;
+
+
+
+}
+
+.gameRoomDescription > p {
+
+    color: #FD6D00;
+    font-family: houschka-rounded, sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 27px;
+    margin: 0px;
+
+}
+
 .gameDescription{
     margin-left: 50px;
     width: 100%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-
-
-
 
 }
 
@@ -539,6 +567,14 @@ footer > a:hover{
     font-style: italic;
     font-size: 25px;
     color: #FD6D00;
+
+}
+
+#playersActiveSection > p  > span{
+
+    color: white;
+    font-weight: 500;
+    font-size: 17px;
 
 }
 
