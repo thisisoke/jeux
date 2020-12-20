@@ -29,7 +29,7 @@ $stmt->execute();
         <div class="navigation">
             <img id="logo" src="images/jeux-logo.png" alt="Jeux logo" >
             <a href="logout.php" class="navLink"> Log Out: <?php echo ($hostInSession); ?></a>
-            <a href="roomManagment.php" class="navLink"> Open Rooms</a>
+            <a href="allgames.php" class="navLink"> Start a Game</a>
         </div>
 
         
