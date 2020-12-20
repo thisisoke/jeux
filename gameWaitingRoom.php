@@ -66,6 +66,8 @@ $gameRow = $stmt2->fetch(PDO::FETCH_ASSOC);
                     <h2> <?php echo($row["roomName"]);?> Room </h2>
 
                     <div id="playersActiveSection">
+
+                        <p>www.jeux.com/joinGame.php</p>
                     
                         <div id="playersActive">
                         <?php 

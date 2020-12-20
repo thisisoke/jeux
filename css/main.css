@@ -291,18 +291,21 @@ footer > a:hover{
 
 .gameDescription{
     margin-left: 50px;
-    width: 30%;
-    position: relative;
-    top: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+
+
 
 }
 
-.gameDescription > h1{
-    margin: 0;
-
+.gameDescription > div > h1{
+    margin: 30px;
     color:white;
     font-family: houschka-rounded, sans-serif;
-    font-weight: 700;
+    font-weight: 500;
     font-style: normal;
     font-size: 80px;
 
@@ -310,7 +313,7 @@ footer > a:hover{
 
 }
 
-.gameDescription > p {
+.gameDescription > div > p {
 
     color:white;
     font-family: houschka-rounded, sans-serif;
@@ -534,7 +537,7 @@ footer > a:hover{
 
     font-weight: 300;
     font-style: italic;
-    font-size: 15px;
+    font-size: 25px;
     color: #FD6D00;
 
 }
@@ -594,6 +597,41 @@ footer > a:hover{
 
 }
 
+#startGameButton-small{
+
+    display: inline-block;
+    width: 150px;
+    padding-left: 40px;
+    border: 2px solid #FD6D00;
+    border-radius: 100px;
+    font-weight: 700;
+    font-style: italic;
+    padding-bottom: 2px;
+    font-size: 25;
+    color: white;
+    text-decoration: none;
+
+
+}
+
+#startGameButton-mid {
+
+    display: inline-block;
+    /* width: 170px; */
+    /* padding-left: 40px; */
+    padding: 5px;
+    background-color:#FD6D00;
+    border-radius: 100px;
+    font-weight: 700;
+    font-style: italic;
+
+    font-size: 35;
+    color: white;
+    text-decoration: none;
+
+
+}
+
 
 #waitingRoomView > div:nth-child(2) {
 
@@ -614,6 +652,102 @@ footer > a:hover{
     color: white;
     
 }
+
+
+
+
+
+#settingsPage{
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+#hostProfile {
+
+    width: 100vw;
+    height: 300px;
+    display: flex;
+    justify-content: flex-start;
+    
+
+
+}
+
+#manageRoomsSection{
+
+    width: 100vw;
+    background-color: #26263C;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+
+
+.roomManageDiv  {
+
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+
+    margin-bottom: 30px;
+    margin-top:30px;
+    color: white;
+
+}
+
+.roomInfo {
+
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+
+    font-weight: 500;
+    font-style: normal;
+
+
+}
+
+.roomInfo > h2 {
+
+    font-weight: 500;
+    font-style: normal;
+    font-size: 50px;
+    margin: 0px;
+
+
+}   
+
+.roomPlayers {
+
+    width: 100%;
+    height: 500px;
+    background-color: #0b0b2459;
+    border: 7px dashed #0B0B24;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-evenly;
+
+
+}
+
+.roomPlayers > div {
+
+    margin-right: 20px;
+    
+
+}
+
+
 
 
 
