@@ -1,11 +1,9 @@
 <?php
-//Get all rooms Host as sarted to be able to delete
-//Javascript can delete the room
 //start session
 session_start();
 
-$hostInSession = "toro"; //$_SESSION["userNameHost"];
-$hostId = 1; //$_SESSION["hostId"];
+$hostInSession = $_SESSION["userNameHost"];
+$hostId = $_SESSION["hostId"];
 
 
 //connect to db
@@ -160,53 +158,6 @@ $stmt->execute();
 
 
             }
-
-
-
-            // //Update the active list of players every 2seconds. Call update Active Players
-            // setInterval(updateActivePlayers, 2000);
-
-
-            // function updateActivePlayers(){
-            //     console.log("Interval is called to get activePlayers");
-
-            //     //Call database  GAME PLAYERS to get updated list of users 
-            //     //Open up a asynchronous AJAX Connection
-            //     var xhr = new XMLHttpRequest(); 
-            //     xhr.onreadystatechange = function(e){     
-            //         //console.log(xhr.readyState); 
-            //         if(xhr.readyState === 4){ 
-
-            //             let activePlayers = JSON.parse(this.responseText);
-            //             console.log(activePlayers);
-
-            //             let playersList= "";
-            //             let name="";
-
-            //             for(i = 0; i < activePlayers.length; i++){
-            //                 console.log(activePlayers[i].userName);
-            //                 name =  activePlayers[i].userName;
-
-            //                 playerActiveName[i].innerHTML = name;
-                            
-            //                 playersList = "<img src='images/"+ activePlayers[i].avatar + ".png'>";
-
-            //                 playerActiveCircle[i].innerHTML = playersList;
-
-            //             }
-            //             console.log(playersList);
-
-            //             //playerActiveList.innerHTML = playersList;
-
-            //         }
-
-            //     }
-
-            //     xhr.open("GET","getPlayersGame.php?gameRoomId="+ gameRoomId,true); 
-            //     xhr.send();
-            // }
-            
-
 
 
         </script>
