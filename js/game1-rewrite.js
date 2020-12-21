@@ -21,7 +21,7 @@ frame.on("ready", function() {
     const stageH = frame.height;
 
 
-    loadingScreen();
+    //loadingScreen();
 
     function loadingScreen(){
 
@@ -150,6 +150,7 @@ frame.on("ready", function() {
 
     }
 
+
     function howToPlay(){
 
         zog("how to play called");
@@ -229,7 +230,7 @@ frame.on("ready", function() {
             //animating  out slowly
             props:{alpha: 0},
             time: .9,
-            wait: 15,
+            wait: 11,
             ease:"sineInOut"
          });
 
@@ -237,19 +238,85 @@ frame.on("ready", function() {
             //animating  out slowly
             props:{alpha: 0},
             time: .9,
-            wait: 18,
+            wait: 10,
             ease:"sineInOut"
          });
 
         timeout(20, gameStart);
     }
 
-
+    gameStart()
     function gameStart(){
 
         zog("gamesStart called")
         //show
         //gameScore()
+
+        var prompt = new Label ({
+            text: "This is the first Prompt",
+            color: black,
+            size:40,
+            variant: true,
+            backgroundColor: "white"
+        }).center().mov({y:-250}).alp(1).animate({
+            from:true,
+            props:{y:370, alpha: 0},
+            time:.4,
+            ease:"sineInOut"
+        });
+
+        var gifSelect = new Tile({
+            obj:new Rectangle(300, 200, "grey"), 
+            cols:7,
+            rows: 2, 
+            spacingH:30,
+            spacingV:30, 
+            width:stageW}).pos(0, 270);
+
+        
+        zog(gifSelect);
+        zog(gifSelect._bounds.width);
+
+        var prevPage = new Circle(50, "red").pos(30, 450);
+        var nextPage = new Circle(50, "blue").pos((stageW -130), 450);
+
+        //get onlick events for the circles
+
+        nextPage.on("click", (e) =>{
+
+            zog("clicked");
+            zog(e);
+            gifSelect.animate({
+                //from:true,
+                props:{x:-stageW},
+                time:.4,
+                ease:"sineInOut"
+            });
+
+        });
+
+        prevPage.on("click", (e) =>{
+            
+
+                zog("clicked");
+                zog(e);
+                zog(gifSelect.x);
+            if (gifSelect.x > 0){
+                gifSelect.animate({
+                //from:true,
+                props:{x:stageW},
+                time:.4,
+                ease:"sineInOut"
+            });
+            }
+
+            
+
+        });
+
+
+
+
 
 
     }
