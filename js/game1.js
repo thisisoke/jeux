@@ -2,7 +2,7 @@
 var scaling = "tagID"; // this will resize to fit inside the screen dimensions
 var width = 1024;
 var height = 720;
-var color = white;
+var color = black;
 var outerColor = "#0B0B24";
 
 
@@ -20,6 +20,19 @@ frame.on("ready", function() {
     const stage = frame.stage;
     const stageW = frame.width;
     const stageH = frame.height;
+
+
+    loadingScreen();
+
+function loadingScreen(){
+
+
+    new Rectangle(200, 100, "white").center()
+
+
+
+
+}
 
     //First Check the game State. Call this Firts and interval as well
     //checkGameState()
