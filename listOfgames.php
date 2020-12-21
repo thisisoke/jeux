@@ -2,9 +2,14 @@
 //connect to db
 include('includes/dbconfig.php');
 
-$getFeatured = $_GET["featured"]; //can be 1 or 0. Featured is for 1 all is O
-$getGameId = $_GET["gameId"];//when the user sends the game id
-
+$getFeatured; 
+if(isset($_GET["featured"])){
+    $getFeatured= $_GET["featured"]; //can be 1 or 0. Featured is for 1 all is O
+}
+$getGameId;
+if(isset($_GET["gameId"])){
+    $getGameId= $_GET["gameId"]; //when the user sends the game id
+}
 
 //If the get condition asks for featured articles, all game, or a specific game
 if (isset($getFeatured) && $getFeatured == 1 ){
