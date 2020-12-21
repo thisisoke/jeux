@@ -21,7 +21,7 @@ $gameRoom; //which game room are we in, and what players and their points
         <script src="https://zimjs.org/cdn/cat/01/zim.js"></script>
         
         <!-- echo php here to load the correct javascript file-->
-        <script src="js/game1.js"></script>
+        <script src="js/game1-rewrite.js"></script>
 
         <meta name="viewport" content="width=device-width, user-scalable=no" />
 
