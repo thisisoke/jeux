@@ -27,7 +27,7 @@ frame.on("ready", function() {
 function loadingScreen(){
 
 
-    new Rectangle(200, 100, "white").center()
+    new Rectangle(200, 100, "white").center().ani
 
 
 

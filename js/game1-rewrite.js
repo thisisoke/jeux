@@ -21,7 +21,7 @@ frame.on("ready", function() {
     const stageH = frame.height;
 
 
-    //loadingScreen();
+    loadingScreen();
 
     function loadingScreen(){
 
@@ -245,7 +245,7 @@ frame.on("ready", function() {
         timeout(20, gameStart);
     }
 
-    gameStart()
+    //gameStart()
     function gameStart(){
 
         zog("gamesStart called")
@@ -321,5 +321,7 @@ frame.on("ready", function() {
 
     }
 });
+
+
 
 
