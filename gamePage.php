@@ -6,6 +6,8 @@ session_start();
 $gameId; //what game are we playing
 $gameRoom; //which game room are we in, and what players and their points
 
+echo($_SESSION["userNamePlayer"]);
+echo($_SESSION["gameRoomId"]);
 
 
 ?>

@@ -1,0 +1,1 @@
+//Get the game state of the game room 

@@ -7,6 +7,9 @@ $gameRoomId = $_GET["gameRoomId"];//Store Received room id From GET
 $userName = $_SESSION["userNamePlayer"]; //use player username
 $userNameHost = $_SESSION["userNameHost"]; //Store host if comming from host
 
+//echo ($_SESSION["userNamePlayer"]); 
+
+
 $_SESSION["gameRoomId"] = $gameRoomId; //Store Room Id in session
 
 //connect to db
@@ -91,7 +94,7 @@ $gameRow = $stmt2->fetch(PDO::FETCH_ASSOC);
 
                 <div>
                     <p class="roomCode">Room Code: <?php echo($row["roomCode"]);?></p>
-                    <a id="startGameButton" href="games/<?php echo($gameRow["gameLink"]);?>"> Start Game <i class="fas fa-play"></i></a>
+                    <a id="startGameButton" href="gamePage.php"> Start Game <i class="fas fa-play"></i></a>
 
                 </div>
                 

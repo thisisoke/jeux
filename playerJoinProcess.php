@@ -58,6 +58,8 @@ if (isset($gameRoomId) && ($activePlayers < $gamePlayerLimit)) {
 
     //store the players username in the session
     $_SESSION["userNamePlayer"] = $userNamePlayer;
+    $_SESSION["gameRoomId"] = $gameRoomId;
+    
 
     echo($gameRoomId);
     //echo("Welcome");
