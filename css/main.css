@@ -15,6 +15,63 @@ body {
 
 } 
 
+body.gameScreen {
+
+    width: 100vw;
+    margin: 0px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+
+}
+
+body.gameScreen > #gameRoomStats {
+
+    width: 1024px;
+    height: 130px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+
+
+}
+
+body.gameScreen > #gameRoomStats > div:nth-child(2) {
+
+    display: flex;
+
+
+
+}
+
+body.gameScreen > #gameRoomStats > div:nth-child(2) > div {
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px;
+
+
+}
+
+body.gameScreen > #gameRoomStats > div:nth-child(2) > div > img {
+
+    width: 20px;
+    height: 23px;
+
+
+}
+
+body.gameScreen > #tagID {
+
+    border-radius: 40px;
+
+}
+
+
+
 html{
     height:100%;
 }

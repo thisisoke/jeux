@@ -8,5 +8,5 @@
 <!-- importing fonts -->
 <link rel="stylesheet" href="https://use.typekit.net/ibk8xny.css">
 
-<link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
-<link href="images/webclip.png" rel="apple-touch-icon">
+<link href="images/jeux-favicon.png" rel="shortcut icon" type="image/x-icon">
+<link href="images/jeux-favicon.png" rel="apple-touch-icon">
